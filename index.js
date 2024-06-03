@@ -14,7 +14,6 @@ exports.handler = async (event) => {
 
     try {
         await client.connect();
-        console.log("Connected to the database");
 
         const { table, geoid, sex, race, education, ageg } = event.queryStringParameters;
 
@@ -57,7 +56,6 @@ exports.handler = async (event) => {
         const res = await client.query(query, values);
 
         await client.end();
-        console.log("Query executed successfully, closing connection");
 
         return {
             statusCode: 200,
